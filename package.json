@@ -1,0 +1,20 @@
+{
+  "name": "@dhruvsaraiya/npm-sample-package",
+  "version": "1.0.0",
+  "description": "This is to test publishing packages on GitHub npm package registry",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruvsaraiya/npm-sample-package.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhruvsaraiya/npm-sample-package/issues"
+  },
+  "homepage": "https://github.com/dhruvsaraiya/npm-sample-package#readme"
+}
