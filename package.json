@@ -1,6 +1,6 @@
 {
   "name": "@dhruvsaraiya/npm-sample-package",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Testing descriptions",
   "main": "index.js",
   "scripts": {
