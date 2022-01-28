@@ -1,7 +1,7 @@
 {
   "name": "@dhruvsaraiya/npm-sample-package",
-  "version": "1.0.1",
-  "description": "This is to test publishing packages on GitHub npm package registry",
+  "version": "1.0.2",
+  "description": "Testing descriptions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Success: no test specified\" && exit 0"
