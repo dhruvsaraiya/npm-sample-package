@@ -1,0 +1,38 @@
+on: [workflow_dispatch]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        npm-version: ["6.0.0", "6.14.12", "6.14.13", "7.0.0-beta.0", "7.0.0-beta.13", "7.0.0-rc.0", "7.0.0-rc.4", "7.0.0", "7.0.1", "7.0.2", "7.0.3", "7.0.4", "7.0.5", "7.0.6", "7.0.7", "7.0.8", "7.0.9", "7.0.10", "7.0.11", "7.0.12", "7.0.13", "7.0.14", "7.0.15", "7.19.1"]
+
+    env:
+      VERSION: ${{ matrix.npm-version }}-${{ github.run_number }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+          scope: ${{ github.repository_owner }}
+
+      - name: Create a package called @${{ github.repository }}
+        run: npm init --scope ${{ github.repository_owner }} -y
+
+      - name: Add a README.md file
+        run: echo "I am a README for v${{ env.VERSION }}!" > README.md
+
+      - name: Set package version to ${{ env.VERSION }}
+        run: npm version ${{ env.VERSION }} --no-git-tag-version
+
+      - name: Build the package
+        run: npm pack
+
+      - name: Publish the package
+        run: npx npm@${{ matrix.npm-version }} publish *.tgz
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
