@@ -19,6 +19,6 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-      - run: npm install @dhruvsaraiya/npm-sample-package
+      - run: npm install @dhruvsaraiya/npm-v2-test-package
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
